@@ -23,3 +23,15 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("\n============================================================================\n")
+        print("Textfield text: \(textField.text)")
+        print("string: \(string)")
+        print("Range length: \(range.length)")
+        print("Range location: \(range.location)")
+        print("\n============================================================================\n")
+        return true
+    }
+}
+

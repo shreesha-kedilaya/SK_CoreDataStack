@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113F44671DE581E800B84B2B /* SK_CoreDataResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */; };
 		11F98DC11DE4B09100DE2CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */; };
 		11F98DC31DE4B09100DE2CFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F98DC21DE4B09100DE2CFA /* ViewController.swift */; };
 		11F98DC61DE4B09100DE2CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F98DC41DE4B09100DE2CFA /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SK_CoreDataResolver.swift; sourceTree = "<group>"; };
 		11F98DBD1DE4B09100DE2CFA /* SK_CoreDataStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SK_CoreDataStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11F98DC21DE4B09100DE2CFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */,
 				11F98DC21DE4B09100DE2CFA /* ViewController.swift */,
 				11F98DEE1DE4B19100DE2CFA /* SK_CoreDataStack.swift */,
+				113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */,
 				11F98E111DE4CE7000DE2CFA /* CoreDataPlayground.playground */,
 				11F98DC41DE4B09100DE2CFA /* Main.storyboard */,
 				11F98DC71DE4B09100DE2CFA /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 			files = (
 				11F98DEF1DE4B19100DE2CFA /* SK_CoreDataStack.swift in Sources */,
 				11F98DC31DE4B09100DE2CFA /* ViewController.swift in Sources */,
+				113F44671DE581E800B84B2B /* SK_CoreDataResolver.swift in Sources */,
 				11F98DC11DE4B09100DE2CFA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

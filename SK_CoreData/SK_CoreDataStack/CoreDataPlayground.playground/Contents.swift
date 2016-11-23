@@ -17,9 +17,19 @@ class CoreDataInheritence: CoreDataStack {
     override init() {
         super.init()
     }
+
+    fileprivate fileprivate (set) var integer: Int?
     
     override func initializeCoreData() {
         print("Called the child")
+
+        integer = 3
+    }
+}
+
+extension CoreDataInheritence {
+    func changeTheValue() {
+        integer = 8
     }
 }
 

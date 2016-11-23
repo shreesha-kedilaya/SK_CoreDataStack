@@ -11,7 +11,7 @@ import CoreData
 private let extensionName = "mmod"
 struct SK_Configuration {
     // MARK: - Properties
-    /// The name you would like to give for your Sqllite database storage.
+    /// The name you would like to give for your Sqlite database storage.
     public var sqlFileName: String?
     
     /// The name of your Core Data Schematic file (.xcdatamodeld extension)
@@ -48,30 +48,38 @@ class SK_CoredataStack {
     
     fileprivate (set) var masterConext: NSManagedObjectContext?
     
-    var errorHandler: (Error?) -> () = { _ in
-        
-    }
+    var errorHandler: ((Error?) -> ())?
 
     @available(iOS 10.0, *)
-    private var persistentContainer: NSPersistentContainer! {
+    private lazy var persistentContainer: NSPersistentContainer! = {
+        let container = self.coredataPersisitentContainer()
+        return container
+    }()
+
+    @available (iOS 10.0, *)
+    private func coredataPersisitentContainer() -> NSPersistentContainer? {
         let container = NSPersistentContainer(name: SK_CoredataStack.coreDataConfig.modelName ?? "Model_name")
         let description = container.persistentStoreDescriptions.first
         description?.url = SK_CoredataStack.storeURL
         let options = (NSNumber(value: true), NSNumber(value: true))
-        
+
         description?.setOption(options.0, forKey: NSMigratePersistentStoresAutomaticallyOption)
         description?.setOption(options.1, forKey: NSInferMappingModelAutomaticallyOption)
-        
+
         container.loadPersistentStores { [weak self] (storeDescription, error) in
             print("CoreData: Inited \(storeDescription)")
             guard error == nil else {
-                self?.errorHandler(error)
+                self?.errorHandler?(error)
                 return
             }
         }
+
         return container
     }
-    
+
+    func begin() {
+        _ = SK_CoredataStack.sharedInstance
+    }
     
     init() {initializeCoreDataStack()}
     
@@ -99,7 +107,17 @@ class SK_CoredataStack {
             do {
                 try persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: SK_CoredataStack.storeURL, options: migrationOptions)
             } catch {
-                self.errorHandler(error)
+                self.errorHandler?(error)
+            }
+        }
+    }
+
+    func excludeIcloudBackup(exculde: Bool) {
+        if exculde {
+            do {
+                try  (SK_CoredataStack.storeURL as NSURL?)?.setResourceValue(true, forKey: URLResourceKey.isExcludedFromBackupKey)
+            }catch {
+                errorHandler?(error)
             }
         }
     }
@@ -127,13 +145,13 @@ class SK_CoredataStack {
                 masterConext = SK_CoredataStack.getMasterContext()
                 masterConext?.parent = ninjaContext
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelCreationError {
-                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelCreationError)
+                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelCreationError)
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound {
-                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
+                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch NSPersistentStoreCoordinator.CoordinatorError.storePathNotFound {
-                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
+                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch {
-                errorHandler(error)
+                errorHandler?(error)
             }
             
         }
@@ -180,7 +198,10 @@ class SK_CoredataStack {
         } catch {
             //Write the code to catch the error in removing the sqlite store file.
         }
-        
+
+        if #available(iOS 10.0, *) {
+            persistentContainer = coredataPersisitentContainer()
+        }
         initializeCoreDataStack()
     }
     
