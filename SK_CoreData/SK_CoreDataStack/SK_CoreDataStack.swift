@@ -48,8 +48,12 @@ class SK_CoredataStack {
     
     fileprivate (set) var masterConext: NSManagedObjectContext?
     
+    var errorHandler: (Error?) -> () = { _ in
+        
+    }
+
     @available(iOS 10.0, *)
-    private lazy var persistentContainer: NSPersistentContainer = {
+    private var persistentContainer: NSPersistentContainer! {
         let container = NSPersistentContainer(name: SK_CoredataStack.coreDataConfig.modelName ?? "Model_name")
         let description = container.persistentStoreDescriptions.first
         description?.url = SK_CoredataStack.storeURL
@@ -58,15 +62,15 @@ class SK_CoredataStack {
         description?.setOption(options.0, forKey: NSMigratePersistentStoresAutomaticallyOption)
         description?.setOption(options.1, forKey: NSInferMappingModelAutomaticallyOption)
         
-        container.loadPersistentStores { (storeDescription, error) in
+        container.loadPersistentStores { [weak self] (storeDescription, error) in
             print("CoreData: Inited \(storeDescription)")
             guard error == nil else {
-                print("CoreData: Unresolved error \(error)")
+                self?.errorHandler(error)
                 return
             }
         }
         return container
-    }()
+    }
     
     
     init() {initializeCoreDataStack()}
@@ -95,7 +99,7 @@ class SK_CoredataStack {
             do {
                 try persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: SK_CoredataStack.storeURL, options: migrationOptions)
             } catch {
-                fatalError("Error in core data migration: \(error)")
+                self.errorHandler(error)
             }
         }
     }
@@ -113,7 +117,8 @@ class SK_CoredataStack {
     fileprivate func initializePersitentStore(_ withObjectModel: NSManagedObjectModel) {
         
         if #available(iOS 10.0, *) {
-            
+            //Do nothing
+            _ = persistentContainer
         } else {
             do {
                 try persistentStoreCoordinator = NSPersistentStoreCoordinator.coordinator()
@@ -122,13 +127,13 @@ class SK_CoredataStack {
                 masterConext = SK_CoredataStack.getMasterContext()
                 masterConext?.parent = ninjaContext
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelCreationError {
-                
+                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelCreationError)
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound {
-                
+                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch NSPersistentStoreCoordinator.CoordinatorError.storePathNotFound {
-                
+                errorHandler(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch {
-                
+                errorHandler(error)
             }
             
         }
@@ -136,14 +141,22 @@ class SK_CoredataStack {
     }
     
     func viewContext() -> NSManagedObjectContext {
-        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        context.parent = masterConext
-        return context
+        if #available (iOS 10, *) {
+            return persistentContainer.newBackgroundContext()
+        } else {
+            let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            context.parent = masterConext
+            return context
+        }
     }
     
     func reset() {
         masterConext?.reset()
         ninjaContext?.reset()
+        if #available(iOS 10.0, *) {
+            persistentContainer = nil
+        } else {
+        }
         
         guard let persistentStores = persistentStoreCoordinator?.persistentStores else {
             return
