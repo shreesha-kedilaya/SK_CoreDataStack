@@ -258,6 +258,22 @@ extension NSPersistentStoreCoordinator {
         }
         
         let storeURL = docURL?.appendingPathComponent("\(sqlFileName).sqlite")
+        
+        guard let url = storeURL else {
+            return nil
+        }
+        
+        if !FileManager.default.fileExists(atPath: url.path) {
+            let defaultUrl = Bundle.main.url(forResource: sqlFileName, withExtension: "sqlite")
+            
+            if let defaultUrl = defaultUrl {
+                do {
+                    try FileManager.default.copyItem(at: defaultUrl, to: url)
+                } catch {
+                }
+            }
+        }
+        
         return storeURL
     }
 }
