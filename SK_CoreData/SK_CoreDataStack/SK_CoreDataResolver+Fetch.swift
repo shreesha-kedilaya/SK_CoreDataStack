@@ -10,7 +10,10 @@ import Foundation
 import CoreData
 
 typealias CoredataRequestCallback = ((NSFetchRequest<NSFetchRequestResult>) -> ())
+typealias CoredataErrorCallback = ((Error?) -> ())
+let NO_OBJECTS_FETCHED_ERROR_CODE = 101
 
+//Create and Fetch
 extension NSManagedObjectContext {
     
     //Creating new object with the NSManagedObjectContext method.
@@ -18,7 +21,7 @@ extension NSManagedObjectContext {
         return NSEntityDescription.insertNewObject(forEntityName: ManagedObject.entityClassName(), into: self) as? ManagedObject
     }
 
-    func executeFetchRequest<ManagedObject: NSManagedObject>(_ error: NSErrorPointer? = nil, returnAsFaults: Bool = true, builder: CoredataRequestCallback? = nil) -> [ManagedObject]? {
+    func executeFetchRequest<ManagedObject: NSManagedObject>(_ returnAsFaults: Bool = true, builder: CoredataRequestCallback? = nil, errorCallback: CoredataErrorCallback? = nil) -> [ManagedObject]? {
         let className = ManagedObject.entityClassName()
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: className)
         request.returnsObjectsAsFaults = returnAsFaults
@@ -29,22 +32,25 @@ extension NSManagedObjectContext {
             objects = try fetch(request) as? [ManagedObject]
         } catch {
             objects = nil
+            errorCallback?(error)
         }
         return objects
     }
     
-    func firstObject<ManagedObject: NSManagedObject>(predicate: NSPredicate? = nil, attribute: (name: String, value: Any)? = nil) -> ManagedObject? {
-        let objects: [ManagedObject]? = self.executeFetchRequest { (fetchRequest) in
+    func firstObject<ManagedObject: NSManagedObject>(predicate: NSPredicate? = nil, attribute: (name: String, value: Any)? = nil, errorCallBack: CoredataErrorCallback? = nil) -> ManagedObject? {
+        let objects: [ManagedObject]? = self.executeFetchRequest(builder: { (fetchRequest) in
             if let predicate = predicate {
                 fetchRequest.predicate = predicate
             } else if let attribute = attribute {
                 fetchRequest.predicate = self.getPredicateWithAttributeName(attribute.name, attributeValue: attribute.value)
             }
+            }) { (error) in
+                errorCallBack?(error)
         }
         return objects?.first
     }
     
-    func totalObjects(entityType: NSManagedObject.Type, attribute: (name: String, value: Any)? = nil, builder: CoredataRequestCallback? = nil) -> Int {
+    func totalObjects(entityType: NSManagedObject.Type, attribute: (name: String, value: Any)? = nil, builder: CoredataRequestCallback? = nil, errorCallBack: CoredataErrorCallback? = nil) -> Int {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityType.entityClassName())
         if let attribute = attribute {
             let predicate = getPredicateWithAttributeName(attribute.name, attributeValue: attribute.value)
@@ -57,13 +63,13 @@ extension NSManagedObjectContext {
         do {
             count = try self.count(for: fetchRequest)
         } catch {
-            
+            errorCallBack?(error)
         }
         
         return count
     }
     
-    public func getPredicateWithAttributeName(_ attributeName: String, attributeValue: Any) -> NSPredicate? {
+    func getPredicateWithAttributeName(_ attributeName: String, attributeValue: Any) -> NSPredicate? {
         var predicate: NSPredicate?
         switch attributeValue {
         case let str as String:
@@ -104,5 +110,13 @@ extension NSManagedObject {
         } else {
             fatalError("Dont have the entity name")
         }
+    }
+}
+
+//Turning the objects to faults again 
+
+extension NSManagedObjectContext {
+    func turnToFault(object: NSManagedObject, mergeChanges: Bool) {
+        refresh(object, mergeChanges: mergeChanges)
     }
 }

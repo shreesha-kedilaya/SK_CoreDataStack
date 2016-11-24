@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        SK_CoredataStack.coreDataConfig = SK_Configuration(sqlFileName: "SQLITEFILE", modelName: "TestCoreData", needMigration: true, mergePolicy: NSMergeByPropertyStoreTrumpMergePolicy)
+
+        SK_CoredataStack.errorHandler = { (error) in
+            print("Error in Core data: \(error)")
+        }
+        SK_CoredataStack.begin()
+
+
         return true
     }
 

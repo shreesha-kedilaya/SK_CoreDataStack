@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		113F44671DE581E800B84B2B /* SK_CoreDataResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */; };
+		113F44671DE581E800B84B2B /* SK_CoreDataResolver+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113F44661DE581E800B84B2B /* SK_CoreDataResolver+Fetch.swift */; };
+		11AA25B11DE70ADC00E6D6A5 /* SK_CoreDataResolver+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AA25B01DE70ADC00E6D6A5 /* SK_CoreDataResolver+Delete.swift */; };
+		11AA25B31DE70B1B00E6D6A5 /* SK_CoreDataResolver+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AA25B21DE70B1B00E6D6A5 /* SK_CoreDataResolver+Save.swift */; };
+		11AA25B61DE720F900E6D6A5 /* TestCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11AA25B41DE720F900E6D6A5 /* TestCoreData.xcdatamodeld */; };
+		11AA25B91DE7223300E6D6A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AA25B81DE7223300E6D6A5 /* CoreData.framework */; };
 		11F98DC11DE4B09100DE2CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */; };
 		11F98DC31DE4B09100DE2CFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F98DC21DE4B09100DE2CFA /* ViewController.swift */; };
 		11F98DC61DE4B09100DE2CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F98DC41DE4B09100DE2CFA /* Main.storyboard */; };
@@ -36,7 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SK_CoreDataResolver.swift; sourceTree = "<group>"; };
+		113F44661DE581E800B84B2B /* SK_CoreDataResolver+Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SK_CoreDataResolver+Fetch.swift"; sourceTree = "<group>"; };
+		11AA25B01DE70ADC00E6D6A5 /* SK_CoreDataResolver+Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SK_CoreDataResolver+Delete.swift"; sourceTree = "<group>"; };
+		11AA25B21DE70B1B00E6D6A5 /* SK_CoreDataResolver+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SK_CoreDataResolver+Save.swift"; sourceTree = "<group>"; };
+		11AA25B51DE720F900E6D6A5 /* TestCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestCoreData.xcdatamodel; sourceTree = "<group>"; };
+		11AA25B81DE7223300E6D6A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		11F98DBD1DE4B09100DE2CFA /* SK_CoreDataStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SK_CoreDataStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11F98DC21DE4B09100DE2CFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AA25B91DE7223300E6D6A5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11AA25B71DE7223300E6D6A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11AA25B81DE7223300E6D6A5 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		11F98DB41DE4B09000DE2CFA = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +103,7 @@
 				11F98DD41DE4B09100DE2CFA /* SK_CoreDataStackTests */,
 				11F98DDF1DE4B09100DE2CFA /* SK_CoreDataStackUITests */,
 				11F98DBE1DE4B09100DE2CFA /* Products */,
+				11AA25B71DE7223300E6D6A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +123,10 @@
 				11F98DC01DE4B09100DE2CFA /* AppDelegate.swift */,
 				11F98DC21DE4B09100DE2CFA /* ViewController.swift */,
 				11F98DEE1DE4B19100DE2CFA /* SK_CoreDataStack.swift */,
-				113F44661DE581E800B84B2B /* SK_CoreDataResolver.swift */,
+				113F44661DE581E800B84B2B /* SK_CoreDataResolver+Fetch.swift */,
+				11AA25B01DE70ADC00E6D6A5 /* SK_CoreDataResolver+Delete.swift */,
+				11AA25B21DE70B1B00E6D6A5 /* SK_CoreDataResolver+Save.swift */,
+				11AA25B41DE720F900E6D6A5 /* TestCoreData.xcdatamodeld */,
 				11F98E111DE4CE7000DE2CFA /* CoreDataPlayground.playground */,
 				11F98DC41DE4B09100DE2CFA /* Main.storyboard */,
 				11F98DC71DE4B09100DE2CFA /* Assets.xcassets */,
@@ -201,7 +222,6 @@
 				TargetAttributes = {
 					11F98DBC1DE4B09000DE2CFA = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9ANM49J4VY;
 						ProvisioningStyle = Automatic;
 					};
 					11F98DD01DE4B09100DE2CFA = {
@@ -270,10 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AA25B11DE70ADC00E6D6A5 /* SK_CoreDataResolver+Delete.swift in Sources */,
 				11F98DEF1DE4B19100DE2CFA /* SK_CoreDataStack.swift in Sources */,
 				11F98DC31DE4B09100DE2CFA /* ViewController.swift in Sources */,
-				113F44671DE581E800B84B2B /* SK_CoreDataResolver.swift in Sources */,
+				11AA25B31DE70B1B00E6D6A5 /* SK_CoreDataResolver+Save.swift in Sources */,
+				113F44671DE581E800B84B2B /* SK_CoreDataResolver+Fetch.swift in Sources */,
 				11F98DC11DE4B09100DE2CFA /* AppDelegate.swift in Sources */,
+				11AA25B61DE720F900E6D6A5 /* TestCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,9 +448,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ANM49J4VY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SK_CoreDataStack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ShreeK.SK-CoreDataStack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,9 +462,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ANM49J4VY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SK_CoreDataStack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ShreeK.SK-CoreDataStack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11AA25B41DE720F900E6D6A5 /* TestCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11AA25B51DE720F900E6D6A5 /* TestCoreData.xcdatamodel */,
+			);
+			currentVersion = 11AA25B51DE720F900E6D6A5 /* TestCoreData.xcdatamodel */;
+			path = TestCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 11F98DB51DE4B09000DE2CFA /* Project object */;
 }

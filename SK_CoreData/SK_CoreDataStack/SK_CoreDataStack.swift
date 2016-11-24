@@ -9,6 +9,10 @@
 import Foundation
 import CoreData
 private let extensionName = "mmod"
+
+private let CORE_DATA_LOADING_ERROR_CODE = 102
+private let NO_NSMANAGED_OBJECT_MODEL_ERROR_CODE = 103
+
 struct SK_Configuration {
     // MARK: - Properties
     /// The name you would like to give for your Sqlite database storage.
@@ -22,13 +26,7 @@ struct SK_Configuration {
     
     /// The merge policy to be followed while saving changes in Core Data. Default value is NSErrorMergePolicy
     public var mergePolicy: Any = NSErrorMergePolicy
-    
-    // MARK: - Methods
-    /// Initializer
-    public init() {
-        
-    }
-    
+
     /// Returns the default set of configurations of _CoreDataStack_
     public static var defaultConfiguration: SK_Configuration {
         var manager = SK_Configuration()
@@ -48,7 +46,7 @@ class SK_CoredataStack {
     
     fileprivate (set) var masterConext: NSManagedObjectContext?
     
-    var errorHandler: ((Error?) -> ())?
+    static var errorHandler: ((Error?) -> ())?
 
     @available(iOS 10.0, *)
     private lazy var persistentContainer: NSPersistentContainer! = {
@@ -66,10 +64,10 @@ class SK_CoredataStack {
         description?.setOption(options.0, forKey: NSMigratePersistentStoresAutomaticallyOption)
         description?.setOption(options.1, forKey: NSInferMappingModelAutomaticallyOption)
 
-        container.loadPersistentStores { [weak self] (storeDescription, error) in
+        container.loadPersistentStores { (storeDescription, error) in
             print("CoreData: Inited \(storeDescription)")
             guard error == nil else {
-                self?.errorHandler?(error)
+                SK_CoredataStack.errorHandler?(error)
                 return
             }
         }
@@ -77,7 +75,7 @@ class SK_CoredataStack {
         return container
     }
 
-    func begin() {
+    class func begin() {
         _ = SK_CoredataStack.sharedInstance
     }
     
@@ -86,13 +84,17 @@ class SK_CoredataStack {
     fileprivate (set) var persistentStoreCoordinator: NSPersistentStoreCoordinator?
     
     func initializeCoreDataStack() {
-        guard let modelName = SK_CoredataStack.coreDataConfig.modelName, let pathUrl = Bundle.main.url(forResource: modelName, withExtension: "mmod") else {
+        guard let modelName = SK_CoredataStack.coreDataConfig.modelName, let pathUrl = Bundle.main.url(forResource: modelName, withExtension: "momd") else {
+            let error = NSError(domain: "Error in loading the model from the bundle", code: CORE_DATA_LOADING_ERROR_CODE, userInfo: nil)
+            SK_CoredataStack.errorHandler?(error)
             return
         }
         
         let managedObjectModel = NSManagedObjectModel(contentsOf: pathUrl)
         
         guard let objectModel = managedObjectModel else {
+            let error = NSError(domain: "No Managed object at specified Url", code: NO_NSMANAGED_OBJECT_MODEL_ERROR_CODE, userInfo: nil)
+            SK_CoredataStack.errorHandler?(error)
             return
         }
         
@@ -107,7 +109,7 @@ class SK_CoredataStack {
             do {
                 try persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: SK_CoredataStack.storeURL, options: migrationOptions)
             } catch {
-                self.errorHandler?(error)
+                SK_CoredataStack.errorHandler?(error)
             }
         }
     }
@@ -117,7 +119,7 @@ class SK_CoredataStack {
             do {
                 try  (SK_CoredataStack.storeURL as NSURL?)?.setResourceValue(true, forKey: URLResourceKey.isExcludedFromBackupKey)
             }catch {
-                errorHandler?(error)
+                SK_CoredataStack.errorHandler?(error)
             }
         }
     }
@@ -145,13 +147,13 @@ class SK_CoredataStack {
                 masterConext = SK_CoredataStack.getMasterContext()
                 masterConext?.parent = ninjaContext
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelCreationError {
-                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelCreationError)
+                SK_CoredataStack.errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelCreationError)
             } catch NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound {
-                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
+                SK_CoredataStack.errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch NSPersistentStoreCoordinator.CoordinatorError.storePathNotFound {
-                errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
+                SK_CoredataStack.errorHandler?(NSPersistentStoreCoordinator.CoordinatorError.modelFileNotFound)
             } catch {
-                errorHandler?(error)
+                SK_CoredataStack.errorHandler?(error)
             }
             
         }
@@ -171,6 +173,7 @@ class SK_CoredataStack {
     func reset() {
         masterConext?.reset()
         ninjaContext?.reset()
+        SK_CoredataStack.errorHandler = nil
         if #available(iOS 10.0, *) {
             persistentContainer = nil
         } else {
