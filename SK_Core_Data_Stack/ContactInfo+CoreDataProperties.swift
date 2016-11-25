@@ -18,7 +18,8 @@ extension ContactInfo {
     @NSManaged public var address: String?
     @NSManaged public var contactID: Double
     @NSManaged public var email: String?
-    @NSManaged public var pinCode: Int16
+    @NSManaged public var pinCode: Int64
     @NSManaged public var userID: Double
+    @NSManaged public var supplierID: Double
 
 }

@@ -19,7 +19,8 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pinCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pinCode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="supplierID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Order" representedClassName=".Order" syncable="YES">
@@ -84,7 +85,7 @@
     <elements>
         <element name="Billing" positionX="18" positionY="-120" width="128" height="148"/>
         <element name="Cart" positionX="-306" positionY="126" width="128" height="103"/>
-        <element name="ContactInfo" positionX="-738" positionY="-243" width="128" height="118"/>
+        <element name="ContactInfo" positionX="-738" positionY="-243" width="128" height="135"/>
         <element name="Order" positionX="-423" positionY="-162" width="128" height="178"/>
         <element name="OrderDetails" positionX="-54" positionY="63" width="128" height="133"/>
         <element name="Product" positionX="-693" positionY="135" width="128" height="193"/>
