@@ -1,0 +1,60 @@
+
+{"products":[
+             {
+             "pricePerUnit": 20,
+             "productDescription": "This product is good for sinus problems",
+             "productID": 1001,
+             "quantityPerUnitPackage": 20,
+             "unitsInStock": 500,
+             "unitWeight": 550,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 100,
+             "productDescription": "This product is for face wash. Limited edition",
+             "productID": 1002,
+             "quantityPerUnitPackage": 50,
+             "unitsInStock": 250,
+             "unitWeight": 300,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 38,
+             "productDescription": "This Hat. Limited edition",
+             "productID": 1003,
+             "quantityPerUnitPackage": 45,
+             "unitsInStock": 250,
+             "unitWeight": 20,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 25,
+             "productDescription": "This product is good for whole body wash. Limited edition",
+             "productID": 1004,
+             "quantityPerUnitPackage": 150,
+             "unitsInStock": 5000,
+             "unitWeight": 30,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 677,
+             "productDescription": "Laptop cleaning kit. Discount avaliable.",
+             "productID": 1005,
+             "quantityPerUnitPackage": 50,
+             "unitsInStock": 50,
+             "unitWeight": 550,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 3000,
+             "productDescription": "Sports shoes with studs. For cricket, football, volleyball etc.",
+             "productID": 1006,
+             "quantityPerUnitPackage": 10,
+             "unitsInStock": 250,
+             "unitWeight": 150,
+             "unitsOrdered": 0
+             }, {
+             "pricePerUnit": 1500,
+             "productDescription": "Laptop keyboard.",
+             "productID": 1007,
+             "quantityPerUnitPackage": 20,
+             "unitsInStock": 250,
+             "unitWeight": 50,
+             "unitsOrdered": 0
+             }
+             ]}

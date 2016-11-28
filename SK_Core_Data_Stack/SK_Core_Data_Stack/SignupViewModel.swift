@@ -10,7 +10,7 @@ import Foundation
 class SignupViewModel {
 
     var supplier: Supplier?
-    func addUser(username: String, password: String, address: String, pincode: Int, emailId: String, admin: Bool, supplier: Supplier?) {
+    func addUser(username: String, password: String, address: String, pincode: Int, emailId: String, admin: Bool, supplier: Supplier?, success: @escaping ViewModelCompletion) {
 
         let context = SK_CoredataStack.sharedInstance.viewContext()
         let user: User? = context.newObject()
@@ -31,9 +31,11 @@ class SignupViewModel {
 
         context.saveAllToStore(false) { (error) in
             guard let error = error else{
+                success(nil)
                 print("Added successfully")
                 return
             }
+            success(defaultError)
             print("Error in saving to core data: \(error)")
         }
     }

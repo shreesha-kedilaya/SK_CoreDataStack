@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SK_CoreDataStack.swift"
-            timestampString = "501779186.418605"
+            filePath = "SK_Core_Data_Stack/SignupViewModel.swift"
+            timestampString = "501856619.732357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "NSPersistentStoreCoordinator"
-            landmarkType = "4">
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "addUser(username:password:address:pincode:emailId:admin:supplier:success:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,14 +25,126 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SK_CoreDataStack.swift"
-            timestampString = "501779187.907402"
+            filePath = "SK_Core_Data_Stack/SignupViewModel.swift"
+            timestampString = "501856620.838916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "NSPersistentStoreCoordinator"
-            landmarkType = "4">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "addUser(username:password:address:pincode:emailId:admin:supplier:success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/SignupViewModel.swift"
+            timestampString = "501856622.036382"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "addUser(username:password:address:pincode:emailId:admin:supplier:success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewModel.swift"
+            timestampString = "501862652.959831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "siginInDidTap(success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewModel.swift"
+            timestampString = "501862652.959831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "siginInDidTap(success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewModel.swift"
+            timestampString = "501862652.959831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "siginInDidTap(success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewController.swift"
+            timestampString = "501929364.301884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "loginDidTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SK_Core_Data_Stack.LoginViewController.loginDidTap (Swift.AnyObject) -&gt; ()"
+                  moduleName = "SK_Core_Data_Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Smash/Github/CoreDataStack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
+                  timestampString = "501862796.951422"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1200">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SK_Core_Data_Stack.LoginViewController.(loginDidTap (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "SK_Core_Data_Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Smash/Github/CoreDataStack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
+                  timestampString = "501862796.954853"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
