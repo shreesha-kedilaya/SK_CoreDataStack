@@ -10,6 +10,7 @@ import Foundation
 class SignupViewModel {
 
     var supplier: Supplier?
+    var user: User?
     func addUser(username: String, password: String, address: String, pincode: Int, emailId: String, admin: Bool, supplier: Supplier?, success: @escaping ViewModelCompletion) {
 
         let context = supplier?.managedObjectContext ?? SK_CoredataStack.sharedInstance.backgroundContext()
@@ -19,7 +20,7 @@ class SignupViewModel {
         user?.name = username
         user?.supplierCompany = supplier
         user?.userID = Constants.CoredataStartingIDs.user.d
-        user?.admin = true
+        user?.admin = admin
 
         let contactInfo: ContactInfo? = context.newObject()
         contactInfo?.address = address
@@ -35,6 +36,7 @@ class SignupViewModel {
                 print("Added successfully")
                 return
             }
+            self.user = user
             success(defaultError)
             print("Error in saving to core data: \(error)")
         }

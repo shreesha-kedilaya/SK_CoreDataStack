@@ -13,7 +13,7 @@ class ProductListViewModel {
     func fetchAllProducts(completion: () -> ()) {
         let context = SK_CoredataStack.sharedInstance.viewContext()
         if Preference.isAdmin() {
-            let predicate = NSPredicate(format: "name == %@", Preference.userName() ?? "")
+            let predicate = NSPredicate(format: "userID == %@", Preference.userID() ?? "")
 
             let user: User! = context.executeFetchRequest(builder: { (fetchRequest) in
                 fetchRequest.predicate = predicate
@@ -38,5 +38,37 @@ class ProductListViewModel {
         })
 
         self.products?.remove(at: atIndex)
+    }
+
+    func addProductToCart(atIndex: Int, completion: @escaping ViewModelCompletion) {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let user: User? = context.executeFetchRequest(builder: { (request) in
+            request.predicate = NSPredicate(format: "userID == %@", Preference.userID() ?? 0)
+            })?.first
+        if let user = user {
+
+            let productAt = self.products?[atIndex]
+            guard let productAtIndex = productAt else {
+                completion(NSError(domain: "No products", code: 3024, userInfo: nil))
+                return
+            }
+            guard let cart = user.cart else {
+                let cart: Cart? = context.newObject()
+                cart?.addToProducts(productAtIndex)
+                context.saveAllToStore(false, completion: { (error) in
+                    completion(error)
+                })
+                return
+            }
+
+            cart.addToProducts(productAtIndex)
+            context.saveAllToStore(false, completion: { (error) in
+                completion(error)
+            })
+
+        } else {
+            let error = NSError(domain: "User not found", code: 90000, userInfo: nil)
+            completion(error)
+        }
     }
 }

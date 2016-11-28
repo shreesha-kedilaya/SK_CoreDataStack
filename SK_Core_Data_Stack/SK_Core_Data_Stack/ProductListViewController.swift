@@ -91,13 +91,13 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return Preference.isAdmin()
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-
+            
         })
         editAction.backgroundColor = UIColor.blue
 
@@ -109,6 +109,27 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
         deleteAction.backgroundColor = UIColor.red
         
         return [editAction, deleteAction]
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !Preference.isAdmin() {
+            let alertController = UIAlertController(title: "Add to Cart", message: "Do you wish to add this item to Cart", preferredStyle: .actionSheet)
+            let addAction = UIAlertAction(title: "Add", style: .default, handler: { (action) in
+                self.viewModel.addProductToCart(atIndex: indexPath.row, completion: { (error) in
+                    if error == nil {
+                        self.showAlert(title: "Error", message: error?.localizedDescription ?? "Some error")
+                    } else {
+                        self.showAlert(title: "Success", message: "The product added to Cart")
+                    }
+                })
+            })
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alertController.addAction(addAction)
+            alertController.addAction(cancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 

@@ -8,7 +8,9 @@
 
 import Foundation
 let userNameKey = "UserName"
+let userIDKey = "UserID"
 let adminKey = "IsAdmin"
+
 class Preference {
     
     class func userName() -> String? {
@@ -17,6 +19,15 @@ class Preference {
 
     class func setUserName(_ value: String?) {
         UserDefaults.standard.set(value, forKey: userNameKey)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func userID() -> Double? {
+        return UserDefaults.standard.object(forKey: userIDKey) as? Double
+    }
+
+    class func setUserID(_ value: Double?) {
+        UserDefaults.standard.set(value, forKey: userIDKey)
         UserDefaults.standard.synchronize()
     }
 

@@ -58,7 +58,7 @@
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502032332.552625"
+                  timestampString = "502036384.411606"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -73,7 +73,7 @@
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502032332.554426"
+                  timestampString = "502036384.413777"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -106,7 +106,7 @@
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502032332.55811"
+                  timestampString = "502036384.420318"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -121,12 +121,76 @@
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502032332.559908"
+                  timestampString = "502036384.422367"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
                   endingLineNumber = "35"
                   offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewController.swift"
+            timestampString = "502033964.046471"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "loginDidTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/LoginViewController.swift"
+            timestampString = "502033964.766454"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "loginDidTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SK_Core_Data_Stack.LoginViewController.loginDidTap (Swift.AnyObject) -&gt; ()"
+                  moduleName = "SK_Core_Data_Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
+                  timestampString = "502036384.447369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1200">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SK_Core_Data_Stack.LoginViewController.(loginDidTap (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "SK_Core_Data_Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
+                  timestampString = "502036384.45032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "27">
                </Location>
             </Locations>
          </BreakpointContent>

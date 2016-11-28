@@ -47,20 +47,24 @@ class SignupViewController: UIViewController {
             }
         }
 
-        viewModel.addSupplier(name: "Ton Supplier", address: "#903, Ton Suppliers, Vishweshwara Nagar", pincode: 575333, emailId: "tonsuppliers@gmail.com", completion: {_ in 
-        self.viewModel.addUser(username: username, password: password, address: address, pincode: pincode, emailId: emailId, admin: true, supplier: self.viewModel.supplier) { (error) in
-            Async.main {
-                if let _ = error {
+        let admin = false
+//        viewModel.addSupplier(name: "Ton Supplier", address: "#903, Ton Suppliers, Vishweshwara Nagar", pincode: 575333, emailId: "tonsuppliers@gmail.com", completion: {_ in
+            self.viewModel.addUser(username: username, password: password, address: address, pincode: pincode, emailId: emailId, admin: admin, supplier: self.viewModel.supplier) { (error) in
+                Async.main {
+                    if let _ = error {
 
-                    self.showAlert(title: "Error", message: "Some Error has occurred")
-                } else {
-                    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                    self.navigationController?.setViewControllers([viewController], animated: true)
+                        self.showAlert(title: "Error", message: "Some Error has occurred")
+                    } else {
+                        Preference.setAdmin(admin)
+                        Preference.setUserName(username)
+                        Preference.setUserID(self.viewModel.user?.userID ?? 0)
+                        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                        self.navigationController?.setViewControllers([viewController], animated: true)
+                    }
                 }
             }
-        }
-
-})
+            
+//        })
 
     }
     

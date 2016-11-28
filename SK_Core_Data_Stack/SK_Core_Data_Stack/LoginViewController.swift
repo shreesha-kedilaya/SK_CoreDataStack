@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                     Preference.setUserName(self.viewModel.username)
                     Preference.setAdmin(self.viewModel.user?.admin ?? false)
+                    Preference.setUserID(self.viewModel.user?.userID ?? 0)
                     self.navigationController?.setViewControllers([viewController], animated: true)
                 }
             })

@@ -27,6 +27,7 @@ class LoginViewModel {
         }?.first
         self.user = user
         guard let password = user?.password else {
+            success(defaultError, false)
             return
         }
         if self.password == password, let admin = user?.admin {
