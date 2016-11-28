@@ -10,9 +10,13 @@ import UIKit
 
 class BillingViewController: UIViewController {
 
+    @IBOutlet weak var creditCardPin: UITextField!
+    @IBOutlet weak var creditCardNumber: UITextField!
+    @IBOutlet weak var billingAddress: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Billing"
         // Do any additional setup after loading the view.
     }
 

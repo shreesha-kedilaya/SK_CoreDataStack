@@ -21,3 +21,22 @@ extension ProductCategory {
     @NSManaged public var product: Product?
 
 }
+
+extension ProductCategory {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "categoryID == max(categoryID)")
+
+        let category: ProductCategory! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let category = category {
+            return category.categoryID + Double(1)
+        } else {
+            return Double(100)
+        }
+
+    }
+}

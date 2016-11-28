@@ -164,6 +164,16 @@ class SK_CoredataStack {
     
     func viewContext() -> NSManagedObjectContext {
         if #available (iOS 10, *) {
+            return persistentContainer.viewContext
+        } else {
+            let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            context.parent = masterConext
+            return context
+        }
+    }
+
+    func backgroundContext() -> NSManagedObjectContext {
+        if #available(iOS 10, *) {
             return persistentContainer.newBackgroundContext()
         } else {
             let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -171,7 +181,7 @@ class SK_CoredataStack {
             return context
         }
     }
-    
+
     func reset() {
         masterConext?.reset()
         ninjaContext?.reset()

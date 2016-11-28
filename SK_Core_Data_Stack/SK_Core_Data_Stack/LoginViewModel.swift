@@ -16,15 +16,16 @@ class LoginViewModel {
     var password = ""
     var supplier: Supplier?
     var personalInfo: ContactInfo?
+    var user: User?
     
     func siginInDidTap(success: @escaping (_ error:Error?, _ admin: Bool) -> ()) {
-        let context = SK_CoredataStack.sharedInstance.viewContext()
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
         let user: User? = context.executeFetchRequest(false, builder: { (fetchRequest) in
             let predicate = NSPredicate(format: "name = %@", self.username)
             fetchRequest.predicate = predicate
             }) { (error) in
         }?.first
-        
+        self.user = user
         guard let password = user?.password else {
             return
         }

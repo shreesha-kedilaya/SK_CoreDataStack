@@ -15,17 +15,36 @@ extension Product {
         return NSFetchRequest<Product>(entityName: "Product");
     }
 
-    @NSManaged public var pricePerUnit: NSDecimalNumber?
+    @NSManaged public var pricePerUnit: Float
     @NSManaged public var productDescription: String?
     @NSManaged public var productID: Double
     @NSManaged public var quantityPerUnitPackage: Int16
     @NSManaged public var unitsInStock: Float
     @NSManaged public var unitsOrdered: Float
-    @NSManaged public var unitWeight: NSDecimalNumber?
+    @NSManaged public var unitWeight: Float
     @NSManaged public var carts: NSSet?
     @NSManaged public var category: ProductCategory?
     @NSManaged public var supplier: Supplier?
 
+}
+
+extension Product {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "productID == max(productID)")
+
+        let product: Product! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let product = product {
+            return product.productID + Double(1)
+        } else {
+            return Double(100)
+        }
+
+    }
 }
 
 // MARK: Generated accessors for carts

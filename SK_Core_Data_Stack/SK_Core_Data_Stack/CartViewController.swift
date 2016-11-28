@@ -14,6 +14,9 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Cart"
+        let leftBardButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CartViewController.handleLeftBarItem(_:)))
+        navigationItem.leftBarButtonItem = leftBardButtonItem
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +24,10 @@ class CartViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func handleLeftBarItem(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

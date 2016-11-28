@@ -23,3 +23,22 @@ extension OrderDetails {
     @NSManaged public var order: Order?
 
 }
+
+extension OrderDetails {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "orderDetailsID == max(orderDetailsID)")
+
+        let orderDetails: OrderDetails! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+
+        if let orderDetails = orderDetails {
+            return orderDetails.orderDetailsID + Double(1)
+        } else {
+            return Double(100)
+        }
+    }
+}

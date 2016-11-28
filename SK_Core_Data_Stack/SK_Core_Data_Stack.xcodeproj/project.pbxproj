@@ -55,12 +55,14 @@
 		11314C981DE86F6A0009B3F9 /* ContactInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11314C841DE86F6A0009B3F9 /* ContactInfo+CoreDataClass.swift */; };
 		11314C991DE86F6A0009B3F9 /* ContactInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11314C851DE86F6A0009B3F9 /* ContactInfo+CoreDataProperties.swift */; };
 		11314C9D1DE86FCC0009B3F9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11314C9C1DE86FCC0009B3F9 /* CoreData.framework */; };
+		114B16901DEC29E9000D4E93 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B168F1DEC29E9000D4E93 /* Preference.swift */; };
+		114B16921DEC3BE0000D4E93 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B16911DEC3BE0000D4E93 /* Async.swift */; };
+		114B16981DEC3E8D000D4E93 /* SQLITEFILE.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */; };
 		115EA5291DE8C8D100071197 /* JSON_DATA.json in Resources */ = {isa = PBXBuildFile; fileRef = 115EA5281DE8C8D100071197 /* JSON_DATA.json */; };
 		11F3702E1DE8727400D998E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3702D1DE8727400D998E5 /* LoginViewModel.swift */; };
 		11F370301DE873AF00D998E5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3702F1DE873AF00D998E5 /* SignupViewController.swift */; };
 		11F370321DE873CE00D998E5 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F370311DE873CE00D998E5 /* SignupViewModel.swift */; };
 		11F370341DE8767700D998E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F370331DE8767700D998E5 /* Constants.swift */; };
-		11F370371DE88AD900D998E5 /* SQLITEFILE.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 11F370361DE88AD900D998E5 /* SQLITEFILE.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,12 +116,14 @@
 		11314C841DE86F6A0009B3F9 /* ContactInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		11314C851DE86F6A0009B3F9 /* ContactInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		11314C9C1DE86FCC0009B3F9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		114B168F1DEC29E9000D4E93 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		114B16911DEC3BE0000D4E93 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQLITEFILE.sqlite; sourceTree = "<group>"; };
 		115EA5281DE8C8D100071197 /* JSON_DATA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSON_DATA.json; sourceTree = "<group>"; };
 		11F3702D1DE8727400D998E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		11F3702F1DE873AF00D998E5 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		11F370311DE873CE00D998E5 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		11F370331DE8767700D998E5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		11F370361DE88AD900D998E5 /* SQLITEFILE.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQLITEFILE.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 		111235DE1DE9AFFF004D5DA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				114B168F1DEC29E9000D4E93 /* Preference.swift */,
+				114B16911DEC3BE0000D4E93 /* Async.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -174,9 +180,9 @@
 				11314C211DE86E8A0009B3F9 /* CoreData */,
 				11F3702B1DE8724800D998E5 /* ViewControllers */,
 				11F3702C1DE8726100D998E5 /* ViewModels */,
+				111556CD1DEAD7260014084E /* Table view cells */,
 				111235DE1DE9AFFF004D5DA4 /* Model */,
 				110BFECB1DE8C5E7001CACCC /* Assets.xcassets */,
-				111556CD1DEAD7260014084E /* Table view cells */,
 				11314C081DE86E160009B3F9 /* Main.storyboard */,
 				111556D21DEAD7AB0014084E /* OrdersTableViewCell.swift */,
 				11314C041DE86E160009B3F9 /* AppDelegate.swift */,
@@ -220,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				11314C161DE86E310009B3F9 /* TestCoreData.xcdatamodeld */,
-				11F370361DE88AD900D998E5 /* SQLITEFILE.sqlite */,
+				114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */,
 				11314C181DE86E310009B3F9 /* SK_CoreDataResolver+Save.swift */,
 				11314C191DE86E310009B3F9 /* SK_CoreDataResolver+Delete.swift */,
 				11314C1A1DE86E310009B3F9 /* SK_CoreDataResolver+Fetch.swift */,
@@ -332,8 +338,8 @@
 				11314C0F1DE86E160009B3F9 /* LaunchScreen.storyboard in Resources */,
 				115EA5291DE8C8D100071197 /* JSON_DATA.json in Resources */,
 				11314C0A1DE86E160009B3F9 /* Main.storyboard in Resources */,
+				114B16981DEC3E8D000D4E93 /* SQLITEFILE.sqlite in Resources */,
 				110BFECC1DE8C5E7001CACCC /* Assets.xcassets in Resources */,
-				11F370371DE88AD900D998E5 /* SQLITEFILE.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +358,7 @@
 				111235EC1DE9E422004D5DA4 /* BillingViewController.swift in Sources */,
 				11314C8F1DE86F6A0009B3F9 /* Order+CoreDataProperties.swift in Sources */,
 				111235FA1DE9E4F6004D5DA4 /* BillingViewModel.swift in Sources */,
+				114B16921DEC3BE0000D4E93 /* Async.swift in Sources */,
 				111235F41DE9E4CD004D5DA4 /* EditInfoViewModel.swift in Sources */,
 				11314C1D1DE86E310009B3F9 /* SK_CoreDataResolver+Save.swift in Sources */,
 				11314C901DE86F6A0009B3F9 /* Product+CoreDataClass.swift in Sources */,
@@ -386,6 +393,7 @@
 				11314C951DE86F6A0009B3F9 /* OrderDetails+CoreDataProperties.swift in Sources */,
 				111235E21DE9E3DA004D5DA4 /* HomeViewController.swift in Sources */,
 				11314C881DE86F6A0009B3F9 /* Billing+CoreDataClass.swift in Sources */,
+				114B16901DEC29E9000D4E93 /* Preference.swift in Sources */,
 				111235F01DE9E4B2004D5DA4 /* HomeViewModel.swift in Sources */,
 				11314C931DE86F6A0009B3F9 /* ProductCategory+CoreDataProperties.swift in Sources */,
 				111235F21DE9E4BB004D5DA4 /* CartViewModel.swift in Sources */,

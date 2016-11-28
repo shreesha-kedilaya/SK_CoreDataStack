@@ -22,6 +22,26 @@ extension Supplier {
 
 }
 
+extension Supplier {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "supplierID == max(supplierID)")
+
+        let supplier: Supplier! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+
+        if let supplier = supplier {
+            return supplier.supplierID + Double(1)
+        } else {
+            return Double(100)
+        }
+    }
+
+}
+
 // MARK: Generated accessors for products
 extension Supplier {
 

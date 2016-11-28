@@ -46,15 +46,17 @@ extension NSManagedObjectContext {
     }
 
     func saveAllToStore(_ synchrnous: Bool, completion: CoredataErrorCallback?) {
+
         if synchrnous {
-            synchronouslySaveAll({ (error) in
+            self.synchronouslySaveAll({ (error) in
                 completion?(error)
             })
         } else {
-            asynchronouslySaveAll({ (error) in
+            self.asynchronouslySaveAll({ (error) in
                 completion?(error)
             })
         }
+
     }
 
     func saveCurrent(_ synchronous: Bool, completion: CoredataErrorCallback?) {

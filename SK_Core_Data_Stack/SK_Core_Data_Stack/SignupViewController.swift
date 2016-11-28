@@ -46,15 +46,22 @@ class SignupViewController: UIViewController {
             default: break
             }
         }
-        
-        viewModel.addUser(username: username, password: password, address: address, pincode: pincode, emailId: emailId, admin: false, supplier: nil) { (error) in
-            if let _ = error {
-                self.showError(message: "Some Error has occurred")
-            } else {
-                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.navigationController?.pushViewController(viewController, animated: true)
+
+        viewModel.addSupplier(name: "Ton Supplier", address: "#903, Ton Suppliers, Vishweshwara Nagar", pincode: 575333, emailId: "tonsuppliers@gmail.com", completion: {_ in 
+        self.viewModel.addUser(username: username, password: password, address: address, pincode: pincode, emailId: emailId, admin: true, supplier: self.viewModel.supplier) { (error) in
+            Async.main {
+                if let _ = error {
+
+                    self.showAlert(title: "Error", message: "Some Error has occurred")
+                } else {
+                    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    self.navigationController?.setViewControllers([viewController], animated: true)
+                }
             }
         }
+
+})
+
     }
     
     /*
@@ -70,10 +77,12 @@ class SignupViewController: UIViewController {
 }
 
 extension UIViewController {
-    func showError(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+    func showAlert(title: String, message: String, completion: (() -> ())? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+            completion?()
+        })
         alertController.addAction(okayAction)
         self.present(alertController, animated: true, completion: nil)
     }

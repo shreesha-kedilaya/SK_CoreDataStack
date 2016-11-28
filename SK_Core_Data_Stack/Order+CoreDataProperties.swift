@@ -26,3 +26,21 @@ extension Order {
     @NSManaged public var shipper: Shipper?
 
 }
+
+extension Order {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "orderID == max(orderID)")
+
+        let order: Order! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let order = order {
+            return order.orderID + Double(1)
+        } else {
+            return Double(100)
+        }
+    }
+}

@@ -22,6 +22,25 @@ extension Shipper {
 
 }
 
+extension Shipper {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "shipperID == max(shipperID)")
+
+        let shipper: Shipper! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let shipper = shipper {
+            return shipper.shipperID + Double(1)
+        } else {
+            return Double(100)
+        }
+
+    }
+}
+
 // MARK: Generated accessors for orders
 extension Shipper {
 

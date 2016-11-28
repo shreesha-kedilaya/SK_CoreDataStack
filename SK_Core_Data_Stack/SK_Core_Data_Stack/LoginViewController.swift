@@ -18,6 +18,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Login"
+
+        usernameTextfield.text = "Ashish"
+        passwordTextfield.text = "ashish123"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -32,9 +35,11 @@ class LoginViewController: UIViewController {
             viewModel.password = password
             viewModel.siginInDidTap(success: { (error, admin) in
                 if let _ = error {
-                    self.showError(message: "Username OR Password is incorrect")
+                    self.showAlert(title: "Error", message: "Username OR Password is incorrect")
                 } else {
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    Preference.setUserName(self.viewModel.username)
+                    Preference.setAdmin(self.viewModel.user?.admin ?? false)
                     self.navigationController?.setViewControllers([viewController], animated: true)
                 }
             })

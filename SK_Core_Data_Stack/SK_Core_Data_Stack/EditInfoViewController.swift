@@ -14,6 +14,7 @@ class EditInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Edit Info"
         // Do any additional setup after loading the view.
     }
 

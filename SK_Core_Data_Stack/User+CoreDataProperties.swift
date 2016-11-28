@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+
 extension User {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
@@ -24,6 +25,25 @@ extension User {
     @NSManaged public var orders: NSSet?
     @NSManaged public var supplierCompany: Supplier?
 
+}
+
+extension User {
+
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "userID == max(userID)")
+
+        let user: User! = context.executeFetchRequest (false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let user = user {
+            return user.userID + Double(1)
+        } else {
+            return Double(100)
+        }
+    }
 }
 
 // MARK: Generated accessors for bills

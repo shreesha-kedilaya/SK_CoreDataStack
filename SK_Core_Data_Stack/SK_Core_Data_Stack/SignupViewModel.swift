@@ -12,21 +12,21 @@ class SignupViewModel {
     var supplier: Supplier?
     func addUser(username: String, password: String, address: String, pincode: Int, emailId: String, admin: Bool, supplier: Supplier?, success: @escaping ViewModelCompletion) {
 
-        let context = SK_CoredataStack.sharedInstance.viewContext()
+        let context = supplier?.managedObjectContext ?? SK_CoredataStack.sharedInstance.backgroundContext()
         let user: User? = context.newObject()
         user?.admin = admin
         user?.password = password
         user?.name = username
         user?.supplierCompany = supplier
         user?.userID = Constants.CoredataStartingIDs.user.d
-
+        user?.admin = true
 
         let contactInfo: ContactInfo? = context.newObject()
         contactInfo?.address = address
         contactInfo?.email = emailId
         contactInfo?.pinCode = pincode.i64
         contactInfo?.contactID = Constants.CoredataStartingIDs.user.d
-        contactInfo?.supplierID = 0
+        contactInfo?.supplierID = supplier?.supplierID ?? 0
 
 
         context.saveAllToStore(false) { (error) in
@@ -40,8 +40,8 @@ class SignupViewModel {
         }
     }
 
-    func addSupplier(name: String, address: String, pincode: Int, emailId: String) {
-        let context = SK_CoredataStack.sharedInstance.viewContext()
+    func addSupplier(name: String, address: String, pincode: Int, emailId: String, completion : @escaping ViewModelCompletion) {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
         let supplier: Supplier? = context.newObject()
         supplier?.companyName = "Ton Suppliers"
         supplier?.supplierID = Constants.CoredataStartingIDs.supplier.d
@@ -53,12 +53,16 @@ class SignupViewModel {
         contactInfo?.supplierID = Constants.CoredataStartingIDs.supplier.d
         contactInfo?.contactID = 0
 
+        self.supplier = supplier
         context.saveAllToStore(false) { (error) in
+
             guard let error = error else {
                 print("Added successfully")
+                completion(nil)
                 return
             }
             print("Error in saving to core data: \(error)")
+            completion(error)
         }
     }
 }

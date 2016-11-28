@@ -6,14 +6,14 @@
         <attribute name="billingID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="creditCardNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="creditCardPin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="order" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Order" inverseName="billing" inverseEntity="Order" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="bills" inverseEntity="User" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="billing" inverseEntity="Order" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="bills" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Cart" representedClassName=".Cart" syncable="YES">
-        <attribute name="cartID" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cartID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="cart" inverseEntity="User" syncable="YES"/>
-        <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product" inverseName="carts" inverseEntity="Product" syncable="YES"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="cart" inverseEntity="User" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="carts" inverseEntity="Product" syncable="YES"/>
     </entity>
     <entity name="ContactInfo" representedClassName=".ContactInfo" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,7 +30,7 @@
         <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shippedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="billing" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Billing" inverseName="order" inverseEntity="Billing" syncable="YES"/>
-        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="orders" inverseEntity="User" syncable="YES"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="orders" inverseEntity="User" syncable="YES"/>
         <relationship name="orderDetails" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="OrderDetails" inverseName="order" inverseEntity="OrderDetails" syncable="YES"/>
         <relationship name="shipper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shipper" inverseName="orders" inverseEntity="Shipper" syncable="YES"/>
     </entity>
@@ -40,25 +40,25 @@
         <attribute name="productID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="unitPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="order" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Order" inverseName="orderDetails" inverseEntity="Order" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderDetails" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="Product" representedClassName=".Product" syncable="YES">
-        <attribute name="pricePerUnit" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pricePerUnit" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="productDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="productID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="quantityPerUnitPackage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unitsInStock" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unitsOrdered" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="unitWeight" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unitWeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="carts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Cart" inverseName="products" inverseEntity="Cart" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProductCategory" inverseName="product" inverseEntity="ProductCategory" syncable="YES"/>
-        <relationship name="supplier" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Supplier" inverseName="products" inverseEntity="Supplier" syncable="YES"/>
+        <relationship name="supplier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Supplier" inverseName="products" inverseEntity="Supplier" syncable="YES"/>
     </entity>
     <entity name="ProductCategory" representedClassName=".ProductCategory" syncable="YES">
         <attribute name="categoryDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categoryID" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="product" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Product" inverseName="category" inverseEntity="Product" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="category" inverseEntity="Product" syncable="YES"/>
     </entity>
     <entity name="Shipper" representedClassName=".Shipper" syncable="YES">
         <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
@@ -80,18 +80,18 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Billing" inverseName="user" inverseEntity="Billing" syncable="YES"/>
         <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="customer" inverseEntity="Cart" syncable="YES"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="customer" inverseEntity="Order" syncable="YES"/>
-        <relationship name="supplierCompany" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Supplier" inverseName="users" inverseEntity="Supplier" syncable="YES"/>
+        <relationship name="supplierCompany" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Supplier" inverseName="users" inverseEntity="Supplier" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Billing" positionX="18" positionY="-120" width="128" height="148"/>
-        <element name="Cart" positionX="-306" positionY="126" width="128" height="103"/>
+        <element name="Billing" positionX="18" positionY="-120" width="128" height="150"/>
+        <element name="Cart" positionX="-306" positionY="126" width="128" height="105"/>
         <element name="ContactInfo" positionX="-738" positionY="-243" width="128" height="135"/>
-        <element name="Order" positionX="-423" positionY="-162" width="128" height="178"/>
-        <element name="OrderDetails" positionX="-54" positionY="63" width="128" height="133"/>
-        <element name="Product" positionX="-693" positionY="135" width="128" height="193"/>
-        <element name="ProductCategory" positionX="-353" positionY="300" width="128" height="103"/>
+        <element name="Order" positionX="-423" positionY="-162" width="128" height="180"/>
+        <element name="OrderDetails" positionX="-54" positionY="63" width="128" height="135"/>
+        <element name="Product" positionX="-693" positionY="135" width="128" height="195"/>
+        <element name="ProductCategory" positionX="-353" positionY="300" width="128" height="105"/>
         <element name="Shipper" positionX="-198" positionY="-207" width="128" height="103"/>
         <element name="Supplier" positionX="-902" positionY="144" width="128" height="103"/>
-        <element name="User" positionX="-810" positionY="-72" width="128" height="163"/>
+        <element name="User" positionX="-810" positionY="-72" width="128" height="165"/>
     </elements>
 </model>

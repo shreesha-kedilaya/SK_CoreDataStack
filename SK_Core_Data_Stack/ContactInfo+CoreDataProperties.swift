@@ -23,3 +23,23 @@ extension ContactInfo {
     @NSManaged public var supplierID: Double
 
 }
+
+extension ContactInfo {
+    class func nextId() -> Double {
+        let context = SK_CoredataStack.sharedInstance.backgroundContext()
+        let predicate = NSPredicate(format: "contactID == max(contactID)")
+
+        let contactInfo: ContactInfo! = context.executeFetchRequest(false, builder: { (fetchRequest) in
+            fetchRequest.predicate = predicate
+        }) { (error) in
+            }?.first
+
+        if let contactInfo = contactInfo {
+            return contactInfo.contactID + Double(1)
+        } else {
+            return Double(100)
+        }
+
+    }
+
+}
