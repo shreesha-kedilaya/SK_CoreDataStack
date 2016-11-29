@@ -150,6 +150,7 @@
 		111556CD1DEAD7260014084E /* Table view cells */ = {
 			isa = PBXGroup;
 			children = (
+				111556D21DEAD7AB0014084E /* OrdersTableViewCell.swift */,
 				111556CE1DEAD7530014084E /* ProductsTableViewCell.swift */,
 				111556D01DEAD7900014084E /* CartTableViewCell.swift */,
 			);
@@ -185,7 +186,6 @@
 				111235DE1DE9AFFF004D5DA4 /* Model */,
 				110BFECB1DE8C5E7001CACCC /* Assets.xcassets */,
 				11314C081DE86E160009B3F9 /* Main.storyboard */,
-				111556D21DEAD7AB0014084E /* OrdersTableViewCell.swift */,
 				11314C041DE86E160009B3F9 /* AppDelegate.swift */,
 				11F370331DE8767700D998E5 /* Constants.swift */,
 				11314C0D1DE86E160009B3F9 /* LaunchScreen.storyboard */,

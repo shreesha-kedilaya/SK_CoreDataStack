@@ -24,6 +24,7 @@ class LoginViewModel {
             let predicate = NSPredicate(format: "name = %@", self.username)
             fetchRequest.predicate = predicate
             }) { (error) in
+                
         }?.first
         self.user = user
         guard let password = user?.password else {

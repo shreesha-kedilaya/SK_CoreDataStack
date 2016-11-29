@@ -11,11 +11,26 @@ import UIKit
 class OrdersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate var viewModel = OrdersViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Orders"
+        
+        let leftItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(OrdersViewController.handleLeftButton(_:)))
+        navigationItem.leftBarButtonItem = leftItem
+        tableView.delegate = self
+        tableView.dataSource = self
+        viewModel.fetchAll { (error) in
+            self.tableView.reloadData()
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func handleLeftButton(_ sender: UIBarButtonItem) {
+        ((UIApplication.shared.delegate) as! AppDelegate).window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,3 +50,23 @@ class OrdersViewController: UIViewController {
     */
 
 }
+
+extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.orders?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
+//        if let order = viewModel.orders[indexPath.row] {
+//            cell.priceLabel = order.
+//        }
+        return cell
+    }
+}
+

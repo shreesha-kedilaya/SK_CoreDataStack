@@ -16,7 +16,7 @@ extension Shipper {
     }
 
     @NSManaged public var companyName: String?
-    @NSManaged public var phoneNumber: Int16
+    @NSManaged public var phoneNumber: Int64
     @NSManaged public var shipperID: Double
     @NSManaged public var orders: NSSet?
 

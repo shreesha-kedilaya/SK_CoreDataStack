@@ -18,8 +18,8 @@ extension OrderDetails {
     @NSManaged public var orderDetailsID: Double
     @NSManaged public var orderNumber: Float
     @NSManaged public var productID: Double
-    @NSManaged public var quantity: NSDecimalNumber?
-    @NSManaged public var unitPrice: NSDecimalNumber?
+    @NSManaged public var quantity: Float
+    @NSManaged public var unitPrice: Float
     @NSManaged public var order: Order?
 
 }
