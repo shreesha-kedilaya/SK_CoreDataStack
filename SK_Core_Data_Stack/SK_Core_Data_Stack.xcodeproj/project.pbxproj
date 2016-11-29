@@ -57,7 +57,7 @@
 		11314C9D1DE86FCC0009B3F9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11314C9C1DE86FCC0009B3F9 /* CoreData.framework */; };
 		114B16901DEC29E9000D4E93 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B168F1DEC29E9000D4E93 /* Preference.swift */; };
 		114B16921DEC3BE0000D4E93 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B16911DEC3BE0000D4E93 /* Async.swift */; };
-		114B16981DEC3E8D000D4E93 /* SQLITEFILE.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */; };
+		114B169C1DED52FD000D4E93 /* SQLITEFILE.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 114B16991DED52FD000D4E93 /* SQLITEFILE.sqlite */; };
 		115EA5291DE8C8D100071197 /* JSON_DATA.json in Resources */ = {isa = PBXBuildFile; fileRef = 115EA5281DE8C8D100071197 /* JSON_DATA.json */; };
 		11F3702E1DE8727400D998E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3702D1DE8727400D998E5 /* LoginViewModel.swift */; };
 		11F370301DE873AF00D998E5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3702F1DE873AF00D998E5 /* SignupViewController.swift */; };
@@ -118,7 +118,7 @@
 		11314C9C1DE86FCC0009B3F9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		114B168F1DEC29E9000D4E93 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		114B16911DEC3BE0000D4E93 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
-		114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQLITEFILE.sqlite; sourceTree = "<group>"; };
+		114B16991DED52FD000D4E93 /* SQLITEFILE.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQLITEFILE.sqlite; sourceTree = "<group>"; };
 		115EA5281DE8C8D100071197 /* JSON_DATA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSON_DATA.json; sourceTree = "<group>"; };
 		11F3702D1DE8727400D998E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		11F3702F1DE873AF00D998E5 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				115EA5281DE8C8D100071197 /* JSON_DATA.json */,
+				11314C9A1DE86F7A0009B3F9 /* Stack */,
 				11314C211DE86E8A0009B3F9 /* CoreData */,
 				11F3702B1DE8724800D998E5 /* ViewControllers */,
 				11F3702C1DE8726100D998E5 /* ViewModels */,
@@ -216,7 +217,6 @@
 				11314C831DE86F6A0009B3F9 /* Supplier+CoreDataProperties.swift */,
 				11314C841DE86F6A0009B3F9 /* ContactInfo+CoreDataClass.swift */,
 				11314C851DE86F6A0009B3F9 /* ContactInfo+CoreDataProperties.swift */,
-				11314C9A1DE86F7A0009B3F9 /* Stack */,
 			);
 			name = CoreData;
 			path = ..;
@@ -226,13 +226,14 @@
 			isa = PBXGroup;
 			children = (
 				11314C161DE86E310009B3F9 /* TestCoreData.xcdatamodeld */,
-				114B16951DEC3E87000D4E93 /* SQLITEFILE.sqlite */,
+				114B16991DED52FD000D4E93 /* SQLITEFILE.sqlite */,
 				11314C181DE86E310009B3F9 /* SK_CoreDataResolver+Save.swift */,
 				11314C191DE86E310009B3F9 /* SK_CoreDataResolver+Delete.swift */,
 				11314C1A1DE86E310009B3F9 /* SK_CoreDataResolver+Fetch.swift */,
 				11314C1B1DE86E310009B3F9 /* SK_CoreDataStack.swift */,
 			);
 			name = Stack;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		11314C9B1DE86FCB0009B3F9 /* Frameworks */ = {
@@ -336,9 +337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				11314C0F1DE86E160009B3F9 /* LaunchScreen.storyboard in Resources */,
+				114B169C1DED52FD000D4E93 /* SQLITEFILE.sqlite in Resources */,
 				115EA5291DE8C8D100071197 /* JSON_DATA.json in Resources */,
 				11314C0A1DE86E160009B3F9 /* Main.storyboard in Resources */,
-				114B16981DEC3E8D000D4E93 /* SQLITEFILE.sqlite in Resources */,
 				110BFECC1DE8C5E7001CACCC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

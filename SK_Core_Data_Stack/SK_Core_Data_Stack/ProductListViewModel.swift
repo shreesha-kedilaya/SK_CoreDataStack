@@ -13,15 +13,16 @@ class ProductListViewModel {
     func fetchAllProducts(completion: () -> ()) {
         let context = SK_CoredataStack.sharedInstance.viewContext()
         if Preference.isAdmin() {
-            let predicate = NSPredicate(format: "userID == %@", Preference.userID() ?? "")
 
+            let predicate = NSPredicate(format: "userID == %lf", Preference.userID() ?? 0)
             let user: User! = context.executeFetchRequest(builder: { (fetchRequest) in
                 fetchRequest.predicate = predicate
             })?.first
-            if let user = user {
-                let supplier = user.supplierCompany
-                self.products = supplier?.products?.allObjects as? [Product]
-            }
+            let product: [Product]! = context.executeFetchRequest(builder: { (request) in
+                request.predicate = NSPredicate(format: "supplier.supplierID == %lf", user.supplierCompany?.supplierID ?? 0)
+            })
+            self.products = product
+
             completion()
         } else {
             products = context.executeFetchRequest()
@@ -43,7 +44,7 @@ class ProductListViewModel {
     func addProductToCart(atIndex: Int, completion: @escaping ViewModelCompletion) {
         let context = SK_CoredataStack.sharedInstance.backgroundContext()
         let user: User? = context.executeFetchRequest(builder: { (request) in
-            request.predicate = NSPredicate(format: "userID == %@", Preference.userID() ?? 0)
+            request.predicate = NSPredicate(format: "userID == %lf", Preference.userID() ?? 0)
             })?.first
         if let user = user {
 
@@ -55,6 +56,8 @@ class ProductListViewModel {
             guard let cart = user.cart else {
                 let cart: Cart? = context.newObject()
                 cart?.addToProducts(productAtIndex)
+                user.cart = cart
+                cart?.customer = user
                 context.saveAllToStore(false, completion: { (error) in
                     completion(error)
                 })

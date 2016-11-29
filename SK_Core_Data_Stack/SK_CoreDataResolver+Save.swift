@@ -25,7 +25,6 @@ extension NSManagedObjectContext {
 
         }catch {
             completion?(error)
-            fatalError("Failed to save the context")
         }
     }
 

@@ -52,7 +52,6 @@ class SignupViewController: UIViewController {
             self.viewModel.addUser(username: username, password: password, address: address, pincode: pincode, emailId: emailId, admin: admin, supplier: self.viewModel.supplier) { (error) in
                 Async.main {
                     if let _ = error {
-
                         self.showAlert(title: "Error", message: "Some Error has occurred")
                     } else {
                         Preference.setAdmin(admin)

@@ -602,7 +602,7 @@
         <!--Cart View Controller-->
         <scene sceneID="6Jo-aW-C5X">
             <objects>
-                <viewController storyboardIdentifier="CartViewController" id="ek3-P8-YOh" customClass="CartViewController" customModule="SK_Core_Data_Stack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" automaticallyAdjustsScrollViewInsets="NO" id="ek3-P8-YOh" customClass="CartViewController" customModule="SK_Core_Data_Stack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7HQ-r1-mAE"/>
                         <viewControllerLayoutGuide type="bottom" id="FIG-xE-dUX"/>
@@ -615,7 +615,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="60" id="kGq-1b-ZBW" customClass="CartTableViewCell" customModule="SK_Core_Data_Stack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kGq-1b-ZBW" id="kND-Oz-VmD">
                                             <frame key="frameInset" width="414" height="60"/>

@@ -41,156 +41,140 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SK_Core_Data_Stack/AddProductViewModel.swift"
-            timestampString = "502031825.528256"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102168.680725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "addProduct(name:description:quantityPerUnit:inStock:weight:unitsOrdered:categoryDescription:price:edit:completion:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102169.135938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102169.59244"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102170.760698"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102171.400161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502102172.200725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "addProductToCart(atIndex:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SK_Core_Data_Stack/ProductListViewModel.swift"
+            timestampString = "502103708.387155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "addProductToCart(atIndex:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.AddProductViewModel.(addProduct (name : Swift.String, description : Swift.String, quantityPerUnit : Swift.Int, inStock : Swift.Double, weight : Swift.Float, unitsOrdered : Swift.Int, categoryDescription : Swift.String, price : Swift.Float, edit : Swift.Bool, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #2)"
+                  symbolName = "SK_Core_Data_Stack.ProductListViewModel.addProductToCart (atIndex : Swift.Int, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502036384.411606"
+                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/ProductListViewModel.swift"
+                  timestampString = "502103662.342438"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "751">
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "960">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.AddProductViewModel.(addProduct (name : Swift.String, description : Swift.String, quantityPerUnit : Swift.Int, inStock : Swift.Double, weight : Swift.Float, unitsOrdered : Swift.Int, categoryDescription : Swift.String, price : Swift.Float, edit : Swift.Bool, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #2).(closure #1)"
+                  symbolName = "SK_Core_Data_Stack.ProductListViewModel.(addProductToCart (atIndex : Swift.Int, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #3)"
                   moduleName = "SK_Core_Data_Stack"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502036384.413777"
+                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/ProductListViewModel.swift"
+                  timestampString = "502103662.34424"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SK_Core_Data_Stack/AddProductViewModel.swift"
-            timestampString = "502031826.509119"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "addProduct(name:description:quantityPerUnit:inStock:weight:unitsOrdered:categoryDescription:price:edit:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.AddProductViewModel.addProduct (name : Swift.String, description : Swift.String, quantityPerUnit : Swift.Int, inStock : Swift.Double, weight : Swift.Float, unitsOrdered : Swift.Int, categoryDescription : Swift.String, price : Swift.Float, edit : Swift.Bool, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SK_Core_Data_Stack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502036384.420318"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "1807">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.AddProductViewModel.(addProduct (name : Swift.String, description : Swift.String, quantityPerUnit : Swift.Int, inStock : Swift.Double, weight : Swift.Float, unitsOrdered : Swift.Int, categoryDescription : Swift.String, price : Swift.Float, edit : Swift.Bool, completion : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "SK_Core_Data_Stack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/AddProductViewModel.swift"
-                  timestampString = "502036384.422367"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SK_Core_Data_Stack/LoginViewController.swift"
-            timestampString = "502033964.046471"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "loginDidTap(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SK_Core_Data_Stack/LoginViewController.swift"
-            timestampString = "502033964.766454"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "loginDidTap(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.LoginViewController.loginDidTap (Swift.AnyObject) -&gt; ()"
-                  moduleName = "SK_Core_Data_Stack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
-                  timestampString = "502036384.447369"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1200">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SK_Core_Data_Stack.LoginViewController.(loginDidTap (Swift.AnyObject) -&gt; ()).(closure #1)"
-                  moduleName = "SK_Core_Data_Stack"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Shreesha/My%20space/Github/Coredata%20stack/SK_Core_Data_Stack/SK_Core_Data_Stack/LoginViewController.swift"
-                  timestampString = "502036384.45032"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "27">
                </Location>
             </Locations>
          </BreakpointContent>

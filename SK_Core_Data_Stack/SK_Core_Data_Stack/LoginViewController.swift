@@ -19,8 +19,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         title = "Login"
 
-        usernameTextfield.text = "Ashish"
-        passwordTextfield.text = "ashish123"
+        usernameTextfield.text = "shreesha"
+        passwordTextfield.text = "qwertyu"
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -19,7 +19,7 @@ class SignupViewModel {
         user?.password = password
         user?.name = username
         user?.supplierCompany = supplier
-        user?.userID = Constants.CoredataStartingIDs.user.d
+        user?.userID = User.nextId()
         user?.admin = admin
 
         let contactInfo: ContactInfo? = context.newObject()

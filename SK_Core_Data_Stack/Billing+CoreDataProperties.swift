@@ -18,7 +18,7 @@ extension Billing {
     @NSManaged public var billDate: NSDate?
     @NSManaged public var billingAddress: String?
     @NSManaged public var billingID: Double
-    @NSManaged public var creditCardNo: Int16
+    @NSManaged public var creditCardNo: Double
     @NSManaged public var creditCardPin: Int16
     @NSManaged public var order: Order?
     @NSManaged public var user: User?

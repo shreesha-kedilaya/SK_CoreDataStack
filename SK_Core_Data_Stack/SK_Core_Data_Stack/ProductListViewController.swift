@@ -116,10 +116,12 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
             let alertController = UIAlertController(title: "Add to Cart", message: "Do you wish to add this item to Cart", preferredStyle: .actionSheet)
             let addAction = UIAlertAction(title: "Add", style: .default, handler: { (action) in
                 self.viewModel.addProductToCart(atIndex: indexPath.row, completion: { (error) in
-                    if error == nil {
-                        self.showAlert(title: "Error", message: error?.localizedDescription ?? "Some error")
-                    } else {
-                        self.showAlert(title: "Success", message: "The product added to Cart")
+                    Async.main {
+                        if error == nil {
+                            self.showAlert(title: "Success", message: "The product added to Cart")
+                        } else {
+                            self.showAlert(title: "Error", message: error?.localizedDescription ?? "Some error")
+                        }
                     }
                 })
             })
@@ -128,6 +130,8 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
             alertController.addAction(addAction)
             alertController.addAction(cancelAction)
 
+            tableView.deselectRow(at: indexPath, animated: true
+            )
             self.present(alertController, animated: true, completion: nil)
         }
     }
