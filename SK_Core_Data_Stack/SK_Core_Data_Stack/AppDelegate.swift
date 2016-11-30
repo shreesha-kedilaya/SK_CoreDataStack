@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -48,6 +51,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func popToRootViewController(completion: @escaping () -> ()) {
+        guard let rootViewController = window?.rootViewController as? UINavigationController else {
+            window?.rootViewController?.dismiss(animated: true, completion: { 
+                completion()
+            })
+            return
+        }
 
+        guard let presentedViewController = rootViewController.presentedViewController else {
+            rootViewController.popToRootViewController(animated: true)
+            return
+        }
+
+        presentedViewController.dismiss(animated: true) {
+            rootViewController.popToRootViewController(animated: true)
+            completion()
+        }
+    }
 }
 

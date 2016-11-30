@@ -164,7 +164,9 @@ class SK_CoredataStack {
     
     func viewContext() -> NSManagedObjectContext {
         if #available (iOS 10, *) {
-            return persistentContainer.viewContext
+            let context = persistentContainer.viewContext
+            context.automaticallyMergesChangesFromParent = true
+            return context
         } else {
             let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
             context.parent = masterConext
@@ -174,9 +176,7 @@ class SK_CoredataStack {
 
     func backgroundContext() -> NSManagedObjectContext {
         if #available(iOS 10, *) {
-            let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            context.parent = persistentContainer.viewContext
-            return context
+            return persistentContainer.newBackgroundContext()
         } else {
             let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
             context.parent = masterConext

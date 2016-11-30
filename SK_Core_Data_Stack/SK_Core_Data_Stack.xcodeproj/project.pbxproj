@@ -138,13 +138,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		111235DE1DE9AFFF004D5DA4 /* Model */ = {
+		111235DE1DE9AFFF004D5DA4 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
 				114B168F1DEC29E9000D4E93 /* Preference.swift */,
 				114B16911DEC3BE0000D4E93 /* Async.swift */,
 			);
-			name = Model;
+			name = Miscellaneous;
 			sourceTree = "<group>";
 		};
 		111556CD1DEAD7260014084E /* Table view cells */ = {
@@ -183,7 +183,7 @@
 				11F3702B1DE8724800D998E5 /* ViewControllers */,
 				11F3702C1DE8726100D998E5 /* ViewModels */,
 				111556CD1DEAD7260014084E /* Table view cells */,
-				111235DE1DE9AFFF004D5DA4 /* Model */,
+				111235DE1DE9AFFF004D5DA4 /* Miscellaneous */,
 				110BFECB1DE8C5E7001CACCC /* Assets.xcassets */,
 				11314C081DE86E160009B3F9 /* Main.storyboard */,
 				11314C041DE86E160009B3F9 /* AppDelegate.swift */,

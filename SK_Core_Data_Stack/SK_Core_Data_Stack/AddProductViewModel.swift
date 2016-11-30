@@ -30,7 +30,6 @@ class AddProductViewModel {
             product.pricePerUnit = price
             product.productID = Product.nextId()
             product.supplier = supplier
-//            supplier?.addToProducts(product)
 
             context?.saveAllToStore(false, completion: { (error) in
                 let category: ProductCategory! = context?.newObject()

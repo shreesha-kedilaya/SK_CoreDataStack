@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Billing" representedClassName=".Billing" syncable="YES">
         <attribute name="billDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="billingAddress" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,7 @@
         <attribute name="shippedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="billing" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Billing" inverseName="order" inverseEntity="Billing" syncable="YES"/>
         <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="orders" inverseEntity="User" syncable="YES"/>
-        <relationship name="orderDetails" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="OrderDetails" inverseName="order" inverseEntity="OrderDetails" syncable="YES"/>
+        <relationship name="orderDetails" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OrderDetails" inverseName="order" inverseEntity="OrderDetails" syncable="YES"/>
         <relationship name="shipper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shipper" inverseName="orders" inverseEntity="Shipper" syncable="YES"/>
     </entity>
     <entity name="OrderDetails" representedClassName=".OrderDetails" syncable="YES">

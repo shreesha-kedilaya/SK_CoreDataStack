@@ -30,7 +30,9 @@ class OrdersViewController: UIViewController {
     }
     
     func handleLeftButton(_ sender: UIBarButtonItem) {
-        ((UIApplication.shared.delegate) as! AppDelegate).window?.rootViewController?.dismiss(animated: true, completion: nil)
+        AppDelegate.appDelegate.popToRootViewController {
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,10 +65,16 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
-//        if let order = viewModel.orders[indexPath.row] {
-//            cell.priceLabel = order.
-//        }
+
+        cell.priceLabel.text = "\(viewModel.totalPrice(orderAtIndex: indexPath.row))"
+        if let order = viewModel.orders?[indexPath.row] {
+            cell.pruductNameLabel.text = "\(order.orderID)"
+        }
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
     }
 }
 

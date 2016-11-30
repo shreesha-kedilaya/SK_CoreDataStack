@@ -22,7 +22,7 @@ extension Order {
     @NSManaged public var shippedDate: NSDate?
     @NSManaged public var billing: Billing?
     @NSManaged public var customer: User?
-    @NSManaged public var orderDetails: OrderDetails?
+    @NSManaged public var orderDetails: NSSet?
     @NSManaged public var shipper: Shipper?
 
 }
